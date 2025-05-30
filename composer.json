@@ -1,0 +1,22 @@
+{
+    "name": "djuric/responsive-block-controls",
+    "description": "Adds extra responsive design controls to the WordPress block editor",
+    "authors": [
+        {
+            "name": "djuric"
+        }
+    ],
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
+    },
+    "scripts": {
+        "phpcs": "./vendor/bin/phpcs",
+        "phpcbf": "./vendor/bin/phpcbf"
+    },
+    "require-dev": {
+        "wp-coding-standards/wpcs": "^3.1",
+        "dealerdirect/phpcodesniffer-composer-installer": "^1.0"
+    }
+}
