@@ -1,0 +1,24 @@
+.responsive-block-controls {
+  &-tab-panel {
+    .components-tab-panel__tabs {
+      justify-content: space-between;
+
+      &-item {
+        flex-grow: 1;
+      }
+    }
+
+    .components-tab-panel__tab-content {
+      padding-block: 0.5rem;
+    }
+  }
+
+  &__control {
+    padding-block: 0.5rem;
+  }
+
+  &-tools-panel {
+    padding-inline: 0 !important;
+    border-top: 0 !important;
+  }
+}
