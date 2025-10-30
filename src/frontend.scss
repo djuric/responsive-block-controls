@@ -69,6 +69,18 @@ $root-padding-left: var(--wp--style--root--padding-left, 0);
           display: none;
         }
       }
+
+      &-columns-direction {
+        &--reverse {
+          &.is-not-stacked-on-mobile {
+            flex-direction: row-reverse;
+          }
+
+          &:not(.is-not-stacked-on-mobile) {
+            flex-direction: column-reverse;
+          }
+        }
+      }
     }
   }
 }

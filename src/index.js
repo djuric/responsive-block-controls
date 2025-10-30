@@ -16,7 +16,6 @@ import './editor.scss';
 
 const withResponsiveBlockControls = createHigherOrderComponent((BlockEdit) => {
 	return (props) => {
-		console.log(props.attributes)
 		return (
 			<>
 				<BlockEdit key="edit" {...props} />

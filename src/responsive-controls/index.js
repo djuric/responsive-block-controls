@@ -12,6 +12,7 @@ import AlignContent from './elements/align-content';
 import Display from "./elements/display";
 import Padding from "./elements/padding";
 import Margin from "./elements/margin";
+import ColumnsDirection from './elements/columns-direction';
 import { getClearedClassNameStyle } from '../utils/class-name-style'
 
 /**
@@ -21,6 +22,7 @@ const CONTROLS_STYLES_SUPPORT = [
     'display',
     'text-align',
     'align',
+    'columns-direction',
 ];
 
 function ResponsiveControls({ blockProps, breakpoint }) {
@@ -49,6 +51,7 @@ function ResponsiveControls({ blockProps, breakpoint }) {
         <AlignContent blockProps={blockProps} breakpoint={breakpoint} />
         <Padding blockProps={blockProps} breakpoint={breakpoint} />
         <Margin blockProps={blockProps} breakpoint={breakpoint} />
+        <ColumnsDirection blockProps={blockProps} breakpoint={breakpoint} />
     </ToolsPanel>
 }
 
