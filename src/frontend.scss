@@ -1,13 +1,12 @@
 $breakpoint-sm: 781px;
 $breakpoint-md: 960px;
-$breakpoint-lg: 1440px;
 
 $root-padding-right: var(--wp--style--root--padding-right, 0);
 $root-padding-left: var(--wp--style--root--padding-left, 0);
 
 .is-style-rbc {
   &-lg {
-    @media (max-width: $breakpoint-lg) {
+    @media (min-width: $breakpoint-md) {
       &-text-align {
         &--center {
           text-align: center;
@@ -29,7 +28,7 @@ $root-padding-left: var(--wp--style--root--padding-left, 0);
   }
 
   &-md {
-    @media (max-width: $breakpoint-md) {
+    @media (min-width: $breakpoint-sm) and (max-width: calc(#{$breakpoint-md} - 1px)) {
       &-text-align {
         &--center {
           text-align: center;
@@ -51,7 +50,7 @@ $root-padding-left: var(--wp--style--root--padding-left, 0);
   }
 
   &-sm {
-    @media (max-width: $breakpoint-sm) {
+    @media (max-width: calc(#{$breakpoint-sm} - 1px)) {
       &-text-align {
         &--center {
           text-align: center;
@@ -88,7 +87,7 @@ $root-padding-left: var(--wp--style--root--padding-left, 0);
 .is-layout-constrained {
   > .is-style-rbc {
     &-lg {
-      @media (max-width: $breakpoint-lg) {
+      @media (min-width: $breakpoint-md) {
         &-align {
           &--full {
             margin-right: calc($root-padding-right * -1) !important;
@@ -99,7 +98,7 @@ $root-padding-left: var(--wp--style--root--padding-left, 0);
     }
 
     &-md {
-      @media (max-width: $breakpoint-md) {
+      @media (min-width: $breakpoint-sm) and (max-width: calc(#{$breakpoint-md} - 1px)) {
         &-align {
           &--full {
             margin-right: calc($root-padding-right * -1) !important;
@@ -110,7 +109,7 @@ $root-padding-left: var(--wp--style--root--padding-left, 0);
     }
 
     &-sm {
-      @media (max-width: $breakpoint-sm) {
+      @media (max-width: calc(#{$breakpoint-sm} - 1px)) {
         &-align {
           &--full {
             margin-right: calc($root-padding-right * -1) !important;
@@ -123,7 +122,7 @@ $root-padding-left: var(--wp--style--root--padding-left, 0);
 }
 
 .has-style-rbc {
-  @media (max-width: $breakpoint-lg) {
+  @media (min-width: $breakpoint-md) {
     padding-top: var(--rbc-lg-padding-top, 0) !important;
     padding-right: var(--rbc-lg-padding-right, 0) !important;
     padding-bottom: var(--rbc-lg-padding-bottom, 0) !important;
@@ -135,7 +134,7 @@ $root-padding-left: var(--wp--style--root--padding-left, 0);
     margin-left: var(--rbc-lg-margin-left, 0) !important;
   }
 
-  @media (max-width: $breakpoint-md) {
+  @media (min-width: $breakpoint-sm) and (max-width: calc(#{$breakpoint-md} - 1px)) {
     padding-top: var(--rbc-md-padding-top, 0) !important;
     padding-right: var(--rbc-md-padding-right, 0) !important;
     padding-bottom: var(--rbc-md-padding-bottom, 0) !important;
@@ -147,7 +146,7 @@ $root-padding-left: var(--wp--style--root--padding-left, 0);
     margin-left: var(--rbc-md-margin-left, 0) !important;
   }
 
-  @media (max-width: $breakpoint-sm) {
+  @media (max-width: calc(#{$breakpoint-sm} - 1px)) {
     padding-top: var(--rbc-sm-padding-top, 0) !important;
     padding-right: var(--rbc-sm-padding-right, 0) !important;
     padding-bottom: var(--rbc-sm-padding-bottom, 0) !important;
