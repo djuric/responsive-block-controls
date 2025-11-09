@@ -1,6 +1,7 @@
 {
     "name": "djuric/responsive-block-controls",
     "description": "Adds extra responsive design controls to the WordPress block editor",
+    "type": "wordpress-plugin",
     "authors": [
         {
             "name": "djuric"
