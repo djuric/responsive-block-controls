@@ -15,6 +15,15 @@
         <severity>0</severity>
     </rule>
 
+    <!-- Disallow Yoda Conditions check -->
+    <rule ref="WordPress">
+        <exclude name="WordPress.PHP.YodaConditions" />
+    </rule>
+
+    <!-- Ignore missing file comment -->
+    <rule ref="Squiz.Commenting.FileComment.Missing">
+        <severity>0</severity>
+    </rule>
 
     <!-- Check all PHP files in directory tree by default. -->
     <arg name="extensions" value="php"/>
