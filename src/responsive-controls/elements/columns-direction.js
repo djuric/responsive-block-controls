@@ -41,9 +41,12 @@ function ColumnsDirection({
   blockProps: {
     setAttributes,
     attributes: { className },
+    name,
   },
   breakpoint,
 }) {
+  if (name !== 'core/columns') return null;
+
   const activeValue = getActiveValue(className, breakpoint.name);
 
   const update = value => {
