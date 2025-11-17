@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       Responsive Block Controls
  * Description:       Adds extra responsive design controls to the WordPress block editor
- * Version:           0.1.0
+ * Version:           1.0.0
  * Requires at least: 6.7
  * Requires PHP:      7.4
  * Author:            Zarko
