@@ -18,10 +18,17 @@ const STYLE_PREFIX = 'is-style-rbc';
  *
  * @return {string} The selected styleValue.
  */
-export function getClassNameStyleValue(className, styleName, styleValues, breakpoint) {
-    const list = new TokenList(className);
+export function getClassNameStyleValue(
+  className,
+  styleName,
+  styleValues,
+  breakpoint
+) {
+  const list = new TokenList(className);
 
-    return styleValues.find((styleValue) => list.contains(`${STYLE_PREFIX}-${breakpoint}-${styleName}--${styleValue}`));
+  return styleValues.find(styleValue =>
+    list.contains(`${STYLE_PREFIX}-${breakpoint}-${styleName}--${styleValue}`)
+  );
 }
 
 /**
@@ -35,34 +42,42 @@ export function getClassNameStyleValue(className, styleName, styleValues, breakp
  *
  * @return {string} The updated className with the new styleValue.
  */
-export function getUpdatedClassNameStyle(className, styleName, styleValue, styleValues, breakpoint) {
-    const list = new TokenList(className);
+export function getUpdatedClassNameStyle(
+  className,
+  styleName,
+  styleValue,
+  styleValues,
+  breakpoint
+) {
+  const list = new TokenList(className);
 
-    styleValues.forEach((value) => list.remove(`${STYLE_PREFIX}-${breakpoint}-${styleName}--${value}`));
+  styleValues.forEach(value =>
+    list.remove(`${STYLE_PREFIX}-${breakpoint}-${styleName}--${value}`)
+  );
 
-    if (styleValue) {
-        list.add(`${STYLE_PREFIX}-${breakpoint}-${styleName}--${styleValue}`);
-    }
+  if (styleValue) {
+    list.add(`${STYLE_PREFIX}-${breakpoint}-${styleName}--${styleValue}`);
+  }
 
-    return list.value;
+  return list.value;
 }
 
 /**
  * Return updated class names that start with the given styleName for the specified breakpoint.
- * 
+ *
  * @param {string} className The class names of the block.
- * @param {string} styleName The name of the style to clear. 
- * @param {string} breakpoint The name of the breakpoint. 
- * @returns 
+ * @param {string} styleName The name of the style to clear.
+ * @param {string} breakpoint The name of the breakpoint.
+ * @returns
  */
 export function getClearedClassNameStyle(className, styleName, breakpoint) {
-    const list = new TokenList(className);
+  const list = new TokenList(className);
 
-    list.forEach((token) => {
-        if (token.startsWith(`${STYLE_PREFIX}-${breakpoint}-${styleName}--`)) {
-            list.remove(token);
-        }
-    });
+  list.forEach(token => {
+    if (token.startsWith(`${STYLE_PREFIX}-${breakpoint}-${styleName}--`)) {
+      list.remove(token);
+    }
+  });
 
-    return list.value;
+  return list.value;
 }

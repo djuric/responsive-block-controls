@@ -72,57 +72,23 @@ function responsive_block_controls_render_block( $block_content, $block ) {
 	}
 
 	$processor = new WP_HTML_Tag_Processor( $block_content );
-	$processor->next_tag();
-
-	$style = '';
-
-	foreach ( $block['attrs']['responsiveStyles'] as $breakpoint => $styles ) {
-		foreach ( $styles['style']['padding'] as $direction => $value ) {
-			if ( $value !== '0' ) {
-				$value  = convert_css_preset_to_variable( $value );
-				$style .= "--rbc-{$breakpoint}-padding-{$direction}: {$value};";
-			}
-		}
-
-		foreach ( $styles['style']['margin'] as $direction => $value ) {
-			if ( $value !== '0' ) {
-				$value  = convert_css_preset_to_variable( $value );
-				$style .= "--rbc-{$breakpoint}-margin-{$direction}: {$value};";
-			}
-		}
-	}
-
-	$existing_style = $processor->get_attribute( 'style' );
-
-	if ( ! empty( $existing_style ) ) {
-		$style = rtrim( $existing_style, ';' ) . '; ' . $style;
-	}
-
-	$processor->set_attribute( 'style', $style );
-	$processor->add_class( 'has-style-rbc' );
-
-	return $processor->get_updated_html();
-}
-
-add_action( 'render_block', 'responsive_block_controls_render_block', 10, 2 );
-
-/**
- * Convert a CSS preset name to a CSS variable.
- * 
- * @param string $name The CSS preset name.
- * @param string $prefix The prefix for the CSS variable.
- * 
- * @return string The CSS variable name.
- */
-function convert_css_preset_to_variable( $name, $prefix = 'wp' ) {
-	if ( strpos( $name, 'var:' ) !== 0 ) {
-		return $name;
-	}
-
-	$css_preset_clean = str_replace( 'var:', '', $name );
-	$css_preset_parts = explode( '|', $css_preset_clean );
-
-	$css_var = implode( '--', [ $prefix, ...$css_preset_parts ] );
-
-	return "var(--{$css_var})";
-}
+	$processor->next_tag(); $style = ''; foreach (
+$block['attrs']['responsiveStyles'] as $breakpoint => $styles ) { foreach (
+$styles['style']['padding'] as $direction => $value ) { if ( $value !== '0' ) {
+$value = convert_css_preset_to_variable( $value ); $style .=
+"--rbc-{$breakpoint}-padding-{$direction}: {$value};"; } } foreach (
+$styles['style']['margin'] as $direction => $value ) { if ( $value !== '0' ) {
+$value = convert_css_preset_to_variable( $value ); $style .=
+"--rbc-{$breakpoint}-margin-{$direction}: {$value};"; } } } $existing_style =
+$processor->get_attribute( 'style' ); if ( ! empty( $existing_style ) ) { $style
+= rtrim( $existing_style, ';' ) . '; ' . $style; } $processor->set_attribute(
+'style', $style ); $processor->add_class( 'has-style-rbc' ); return
+$processor->get_updated_html(); } add_action( 'render_block',
+'responsive_block_controls_render_block', 10, 2 ); /** * Convert a CSS preset
+name to a CSS variable. * * @param string $name The CSS preset name. * @param
+string $prefix The prefix for the CSS variable. * * @return string The CSS
+variable name. */ function convert_css_preset_to_variable( $name, $prefix = 'wp'
+) { if ( strpos( $name, 'var:' ) !== 0 ) { return $name; } $css_preset_clean =
+str_replace( 'var:', '', $name ); $css_preset_parts = explode( '|',
+$css_preset_clean ); $css_var = implode( '--', [ $prefix, ...$css_preset_parts ]
+); return "var(--{$css_var})"; }
