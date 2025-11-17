@@ -4,7 +4,8 @@
 import { __ } from '@wordpress/i18n';
 import {
   __experimentalToolsPanelItem as ToolsPanelItem,
-  ToggleControl,
+  Button,
+  ButtonGroup,
   BaseControl,
 } from '@wordpress/components';
 
@@ -16,29 +17,37 @@ import {
   getUpdatedClassNameStyle,
 } from '../../utils/class-name-style';
 
-const STYLE_VALUES = ['none'];
+const WIDTH_VALUES = ['25', '50', '75', '100'];
 
 const getActiveValue = (className, breakpoint) => {
-  return getClassNameStyleValue(className, 'display', STYLE_VALUES, breakpoint);
+  return getClassNameStyleValue(
+    className,
+    'button-width',
+    WIDTH_VALUES,
+    breakpoint
+  );
 };
 
 const getUpdatedClassNames = (className, value, breakpoint) => {
   return getUpdatedClassNameStyle(
     className,
-    'display',
+    'button-width',
     value,
-    STYLE_VALUES,
+    WIDTH_VALUES,
     breakpoint
   );
 };
 
-function Display({
+function ButtonWidth({
   blockProps: {
     setAttributes,
     attributes: { className },
+    name,
   },
   breakpoint,
 }) {
+  if (name !== 'core/button') return null;
+
   const activeValue = getActiveValue(className, breakpoint.name);
 
   const update = value => {
@@ -54,24 +63,29 @@ function Display({
 
   return (
     <ToolsPanelItem
-      label={__('Visibility', 'responsive-block-controls')}
+      label={__('Button Width', 'responsive-block-controls')}
       panelId={breakpoint.name}
-      hasValue={() => activeValue === 'none'}
+      hasValue={() => !!activeValue}
       onDeselect={() => update(false)}
     >
       <BaseControl
-        label={__('Visiblity', 'responsive-block-controls')}
+        label={__('Button Width', 'responsive-block-controls')}
         __nextHasNoMarginBottom
       >
-        <ToggleControl
-          __nextHasNoMarginBottom
-          label={__('Hidden', 'responsive-block-controls')}
-          checked={activeValue === 'none'}
-          onChange={newValue => update(newValue ? 'none' : false)}
-        />
+        <ButtonGroup>
+          {WIDTH_VALUES.map(value => (
+            <Button
+              key={value}
+              isPressed={activeValue === value}
+              onClick={() => update(value)}
+            >
+              {value}%
+            </Button>
+          ))}
+        </ButtonGroup>
       </BaseControl>
     </ToolsPanelItem>
   );
 }
 
-export default Display;
+export default ButtonWidth;
