@@ -13,6 +13,7 @@ import Display from './elements/display';
 import Padding from './elements/padding';
 import Margin from './elements/margin';
 import ColumnsDirection from './elements/columns-direction';
+import ButtonWidth from './elements/button-width';
 import { getClearedClassNameStyle } from '../utils/class-name-style';
 
 /**
@@ -23,6 +24,7 @@ const CONTROLS_STYLES_SUPPORT = [
   'text-align',
   'align',
   'columns-direction',
+  'button-width',
 ];
 
 function ResponsiveControls({ blockProps, breakpoint }) {
@@ -63,6 +65,7 @@ function ResponsiveControls({ blockProps, breakpoint }) {
       <Padding blockProps={blockProps} breakpoint={breakpoint} />
       <Margin blockProps={blockProps} breakpoint={breakpoint} />
       <ColumnsDirection blockProps={blockProps} breakpoint={breakpoint} />
+      <ButtonWidth blockProps={blockProps} breakpoint={breakpoint} />
     </ToolsPanel>
   );
 }

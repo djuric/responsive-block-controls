@@ -1,14 +1,1 @@
-.responsive-block-controls-tab-panel .components-tab-panel__tabs {
-  justify-content: space-between;
-}
-.responsive-block-controls-tab-panel .components-tab-panel__tabs-item {
-  flex-grow: 1;
-}
-.responsive-block-controls-tab-panel .components-tab-panel__tab-content,
-.responsive-block-controls__control {
-  padding-block: 0.5rem;
-}
-.responsive-block-controls-tools-panel {
-  border-top: 0 !important;
-  padding-inline: 0 !important;
-}
+.responsive-block-controls-tab-panel .components-tab-panel__tabs{justify-content:space-between}.responsive-block-controls-tab-panel .components-tab-panel__tabs-item{flex-grow:1}.responsive-block-controls-tab-panel .components-tab-panel__tab-content,.responsive-block-controls__control{padding-block:.5rem}.responsive-block-controls-tools-panel{border-top:0!important;padding-inline:0!important}
