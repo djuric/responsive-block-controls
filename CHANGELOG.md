@@ -15,3 +15,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 ### Added
 
 - Updated versions in package.json
+
+## [1.2.0] - 2025-11-20
+
+### Added
+
+- Update libraries
+- Add !important to the display: none property in the visibility control. Otherwise flex layout groups were overwriting the display:none.
